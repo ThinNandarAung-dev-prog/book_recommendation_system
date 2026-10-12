@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon" />
+    <title>LitTrio - Home Page</title>
+</head>
+<body>
+    <div class="container min-h-screen px-28 py-5" style="background-image: url({{ url_for('static', filename='images/background.png') }}); background-position: center; background-size: cover;">
+        <nav class="flex items-center">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="size-10 hover:animate-spin">
+            <span class="text-white text-xl text-bold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-indigo-500 px-4 hover:text-extrabold hover:text-sky-300 duration-300">Book Recommender</span>
+            <ul class="flex-1 text-right">
+                <li class="list-none inline-block"><a href="{{ url_for('index') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">Home</a></li>
+                <li class="list-none inline-block"><a href="{{ url_for('trending') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">Trending</a></li>
+                <li class="list-none inline-block"><a href="{{ url_for('recommendPage') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">Recommendation</a></li>
+                <li class="list-none inline-block"><a href="{{ url_for('about') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">About</a></li>
+            </ul>
+        </nav>
+        <div class="text-white mt-48">
+            <h1 class="text-6xl font-semibold leading-normal">Welcome to <span class="text-orange-300 hover:text-yellow-400 hover:text-extrabold">LitTrio</span></h1>
+            <p>Let us be your personalized guide to the world of books. Whether you're looking for <br>
+                a hidden gem, or a classic to revisit, we're here to help you find the perfect read.</p>
+        </div>
+        <br>
+        <div mt-10>
+            <a href="{{ url_for('trending') }}" class="bg-sky-300 rounded-3xl py-3 px-8 font-medium inline-block mr-4 hover:bg-transparent hover:border-sky-300 hover:border-2 hover:text-white duration-300 hover:border border border-transparent hover:animate-bounce">Get Started <span>&#10148</span></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon" />
+</head>
+<body>
+    <div class="min-h-screen h-screen" style="background-image: url({{ url_for('static', filename='images/recommendBc3.png') }}); background-position: center; background-size: cover;background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    background-blend-mode: overlay; /* Blend the image and color */">
+        <nav class="flex items-center px-28 py-5">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="size-10 hover:animate-spin">
+            <span class="text-white text-xl font-bold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-indigo-500 px-4 hover:text-sky-300 duration-300">Book Recommender</span>
+            <!-- Search Bar in Navbar -->
+            <form action="/recommend" method="POST" class="flex items-center flex-1 mx-10">
+                <input type="text" id="book_title" name="book_title" class="w-full px-4 py-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent" placeholder="Eg., Letters of Love" required>
+                <button type="submit" class="bg-sky-300 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded-r-md flex items-center justify-center">
+                    <!-- Heroicons Search Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 104 4 4 4 0 00-4-4zm0 1.5a2.5 2.5 0 11-2.5 2.5A2.5 2.5 0 018 5.5zM13.293 12.707a1 1 0 001.414-1.414l-2-2a1 1 0 00-1.414 1.414l2 2z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </form>
+            <!-- Navigation Links -->
+            <ul class="flex-1 text-right">
+                <li class="list-none inline-block"><a href="{{ url_for('index') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">Home</a></li>
+                <li class="list-none inline-block"><a href="{{ url_for('trending') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">Trend</a></li>
+                <li class="list-none inline-block"><a href="{{ url_for('recommendPage') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">Recommendation</a></li>
+                <li class="list-none inline-block"><a href="{{ url_for('about') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">About</a></li>
+            </ul>
+        </nav>
+        <div class="container mx-auto mt-5 px-28">
+            
+            <!-- Recommendations Display Container -->
+            <div class="bg-white p-4 rounded-lg shadow-lg" style="background-color: rgba(128, 128, 128, 0.7);">
+                {% if book_title %}
+                    <h2 class="text-xl font-bold mb-4 text-white">Recommendations for "{{ book_title }}":</h2>
+                    <div class="flex overflow-x-auto space-x-6 py-2">
+                        {% for recommendation in recommendations %}
+                            <div class="flex-shrink-0 w-40 p-2 bg-gray-50 rounded-lg shadow-sm">
+                                <img class="w-36 h-48 ml-18 object-cover rounded mb-4" src="{{recommendation['Image']}}/100" alt="{{ recommendation['Title'] }}">
+                                <div>
+                                    <h3 class="text-[12px] font-semibold">{{ recommendation['Title'] }}</h3>
+                                    <p class="text-[10px] text-gray-700">Author: {{ recommendation['Author'] }}</p>
+                                    <p class="text-[10px] text-gray-500">Category: {{ recommendation['Categories'] }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="text-white text-xl">Enter a book title to see recommendations.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

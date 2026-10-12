@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Books</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon" />
+</head>
+<body>
+    <div class="container min-h-screen px-28 py-5" style="background-image: url({{ url_for('static', filename='images/reBackground.png') }}); background-position: center; background-size: cover;">
+        <nav class="flex items-center">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="size-10 hover:animate-spin">
+            <span class="text-white text-xl text-bold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-indigo-500 px-4 hover:text-extrabold hover:text-sky-300 duration-300">Book Recommender</span>
+            <ul class="flex-1 text-right">
+                <li class="list-none inline-block"><a href="{{ url_for('index') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">Home</a></li>
+                <li class="list-none inline-block"><a href="{{ url_for('trending') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">Trending</a></li>
+                <li class="list-none inline-block"><a href="{{ url_for('recommendPage') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">Recommendation</a></li>
+                <li class="list-none inline-block"><a href="{{ url_for('about') }}" class="no-underline text-white px-2 hover:border-sky-300 hover:border-b-2 hover:text-sky-300 duration-300">About</a></li>
+            </ul>
+        </nav>
+
+        <!-- Trending books display container -->
+        <div class="container mt-10 bg-white">
+            <h1 class="pt-2 px-4 text-base">5 STAR RATINGS BOOKS</h1>
+            <hr/>
+            <div class="grid grid-cols-9 gap-4 p-5">
+                <!-- Begin adding book items. Each div represents one book. -->
+                {% for i in range(1, 19) %} <!-- Assuming you're looping through a range for simplicity -->
+                <div class="shadow-lg hover:shadow-xl">
+                    <img src="{{ url_for('static', filename='images/books/' ~ i ~ '.png') }}" alt="Book Title {{ i }}"  class="w-full transition-transform duration-300 ease-out hover:scale-105 hover:ease-in">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-right pb-2 mr-2">
+            <a href="{{ url_for('recommendPage') }}" class="text-sky-500 text-right text-sm">More books...</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
