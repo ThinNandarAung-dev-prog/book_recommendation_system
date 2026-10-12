@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Book Recommendation System</title>
+    <title>About - Book Recommendation System</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon" />
 </head>
@@ -22,55 +22,42 @@
 
     <!-- Main Content -->
     <div class="container mx-auto mt-10 p-8 bg-white rounded-lg shadow-lg">
-        <h1 class="text-3xl font-bold mb-6">About Our Project</h1>
-        
-        <p class="mb-4">Welcome to our Book Recommendation System! This project is designed to provide personalized book recommendations based on the content of the books you enjoy. Whether you're looking for your next great read, our system is here to help.</p>
-        
-        <h2 class="text-2xl font-semibold mb-4">Project Overview</h2>
-        <p class="mb-4">This project is a part of our Data Mining coursework, where we aim to demonstrate the practical applications of data mining techniques in a real-world scenario. Our book recommendation system uses a content-based filtering approach to suggest books that match the preferences of the user.</p>
-        
-        <h2 class="text-2xl font-semibold mb-4">How It Works</h2>
-        <p class="mb-4">We use the Cosine Similarity method to measure the similarity between the content of different books. By comparing the features of books, such as title, author, genre, publisher, we can recommend books that are similar to those a user has already enjoyed.</p>
-        
-        <h2 class="text-2xl font-semibold mb-4">Features</h2>
+        <h1 class="text-3xl font-bold mb-6">About this project</h1>
+
+        <p class="mb-4">LitTrio is my personal learning project. Type a book you already like, and the site suggests other titles that feel close to it.</p>
+
+        <h2 class="text-2xl font-semibold mb-4">Why I kept it</h2>
+        <p class="mb-4">I first built this in 2024 as a school assignment. I kept the code and turned it into my own project so I can keep practicing: how a recommendation model is built, how Flask serves a page, and how a large book dataset becomes something you can actually search.</p>
+
+        <h2 class="text-2xl font-semibold mb-4">How it works</h2>
+        <p class="mb-4">Suggestions come from the book itself. The app compares title, author, categories, publisher, and publication year, then uses cosine similarity to find the closest matches.</p>
+
+        <h2 class="text-2xl font-semibold mb-4">What you can do here</h2>
         <ul class="list-disc ml-8 mb-4">
-            <li>Personalized book recommendations based on user input.</li>
-            <li>Content-based filtering using Cosine Similarity.</li>
-            <li>Easy-to-use interface with intuitive search functionality.</li>
-        </ul>
-        
-        <h2 class="text-2xl font-semibold mb-4">Technology Used</h2>
-        <ul class="list-disc ml-8 mb-4">
-            <li><strong>Programming Language:</strong> Python</li>
-            <li><strong>Framework:</strong> Flask for web development</li>
-            <li><strong>Libraries:</strong> Scikit-learn, Pandas, NumPy</li>
-            <li><strong>Frontend:</strong> HTML, TailwindCss, Json</li>
-            <li><strong>Data Source:</strong> Open datasets containing book metadata</li>
-        </ul>
-        
-        <h2 class="text-2xl font-semibold mb-4">Future Enhancements</h2>
-        <p class="mb-4">We plan to enhance the recommendation system by incorporating user reviews and ratings, and potentially exploring hybrid recommendation models that combine collaborative filtering with content-based approaches.</p>
-        
-        <h2 class="text-2xl font-semibold mb-4">Acknowledgements</h2>
-        <p class="mb-4">We would like to thank our professors and peers for their guidance and support throughout this project. Special thanks to the open-source community for providing valuable resources and datasets.</p>
-        
-        <h2 class="text-2xl font-semibold mb-4">Project Members and Roles</h2>
-        <ul class="list-disc ml-8 mb-4">
-            <li><strong>Thin Nandar Aung :</strong> System Engineer</li>
-            <li><strong>Phyo Thet Htun :</strong> Backend Developer</li>
-            <li><strong>Yar Zar Tun</strong> Backend Developer</li>
-            <li><strong>Saw Yu Nandar :</strong> Report Writer</li>
-            <li><strong>Sandi Sharoi : </strong>Presentation Specialist</li>
+            <li>Search by a book title and see similar books.</li>
+            <li>Browse a simple gallery of covers on the Trending page.</li>
+            <li>Read the cover, author, and categories for each suggestion.</li>
         </ul>
 
-        <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
-        <p>If you have any questions or suggestions, feel free to reach out to us through our <a href="/contact" class="text-blue-600 hover:underline"> emails</a>.</p>
+        <h2 class="text-2xl font-semibold mb-4">What I used</h2>
+        <ul class="list-disc ml-8 mb-4">
+            <li><strong>Language:</strong> Python</li>
+            <li><strong>Web:</strong> Flask, HTML, and Tailwind CSS</li>
+            <li><strong>Recommendations:</strong> scikit-learn, pandas, and NumPy</li>
+            <li><strong>Books:</strong> Amazon book metadata, kept outside this repository because the file is large</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mb-4">What I want to learn next</h2>
+        <p class="mb-4">I want to bring in ratings and reviews, and try a hybrid model that mixes this content-based approach with how people have rated books.</p>
+
+        <h2 class="text-2xl font-semibold mb-4">About me</h2>
+        <p class="mb-4">I am <strong>Thin Nandar Aung</strong>. This repository is where I practice data mining and web development on a project I can keep improving.</p>
     </div>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white p-4 mt-10">
         <div class="container mx-auto text-center">
-            &copy; 2024 <span class="text-orange-300 hover:text-yellow-400 hover:text-extrabold">LitTrio</span> Book Recommender. All rights reserved.
+            &copy; 2024 <span class="text-orange-300 hover:text-yellow-400 hover:text-extrabold">LitTrio</span> · Thin Nandar Aung. All right reserved.
         </div>
     </footer>
 </body>

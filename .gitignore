@@ -1,0 +1,16 @@
+# Amazon book metadata (~173 MB). Download it on kaggle; do not commit it.
+amazon/
+**/books_data.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Local editor files
+.idea/
+.vscode/
+*.swp
